@@ -41,11 +41,7 @@ public class IosMitmProxyTest
         });
 
         proxy.start();
-    }
 
-    @Test
-    public void sampleMitmproxyTest() throws MalformedURLException, InterruptedException
-    {
         File appDir = new File("/opt/sahibinden");
         File app = new File(appDir, "sahibinden.app");
 
@@ -63,7 +59,11 @@ public class IosMitmProxyTest
         capabilities.setCapability("bundleid", "com.sahibinden.sahibinden.beta");
 
         driver = new IOSDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+    }
 
+    @Test
+    public void sampleMitmproxyTest() throws InterruptedException
+    {
         Thread.sleep(5000);
         MobileElement locationPopup = (MobileElement) driver.findElement(By.id("Uygulamayı Kullanırken İzin Ver"));
         locationPopup.click();
