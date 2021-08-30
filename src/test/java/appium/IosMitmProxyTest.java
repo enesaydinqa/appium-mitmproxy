@@ -32,8 +32,6 @@ public class IosMitmProxyTest
     @BeforeEach
     public void before() throws IOException, TimeoutException
     {
-
-        // remember to set local OS proxy settings in the Network Preferences
         proxy = new MitmproxyJava("/usr/local/bin/mitmdump", (InterceptedMessage m) -> {
             System.out.println("intercepted request for " + m.getRequest().toString());
             messages.add(m);
